@@ -6,4 +6,4 @@ Otherwise the apriltag package will not work!
 When sourcing the workspace you can no longer run 
 ```source devel/setup.bash```
  You now have to run 
- ```source devel_isolated/setup.bash``
+ ```source devel_isolated/setup.bash```
