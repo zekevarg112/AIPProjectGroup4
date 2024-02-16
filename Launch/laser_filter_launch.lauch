@@ -1,0 +1,7 @@
+<launch>
+  <node name="laser_filter" pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen">
+    <remap from="scan" to="/scan_raw"/>  <!-- Change /scan_raw to your LiDAR's scan topic -->
+    <remap from="scan_filtered" to="/scan_filtered"/>
+    <rosparam file=$.......$/laser_filter.yaml" command="load"/>     #need path to the file here
+  </node>
+</launch>
