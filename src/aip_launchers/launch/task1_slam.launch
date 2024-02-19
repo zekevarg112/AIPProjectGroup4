@@ -1,0 +1,8 @@
+<launch>
+	<include file="$(find aip_launchers)/launch/laser_filter_launch.launch">
+	</include>
+	<include file="$(find turtlebot3_navigation)/launch/move_base.launch">
+	</include>
+	<include file="$(find aip_launchers)/launch/turtlebot3_slam.launch">
+	</include>
+</launch>
