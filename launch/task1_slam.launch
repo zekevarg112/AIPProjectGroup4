@@ -1,8 +1,9 @@
 <launch>
-	<include file="$(find turtlebot3_slam)/launch/turtlebot3_slam.launch">
+	<include file="turtlebot3_slam.launch">
 	</include>
 	<include file="$(find turtlebot3_navigation)/launch/move_base.launch">
 	</include>
+	<include file="laser_filter_launch.lauch">
+	</include>
 		
-
 </launch>
