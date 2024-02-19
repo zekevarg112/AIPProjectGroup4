@@ -1,0 +1,10 @@
+waypoints:
+  - point:
+      x: 0.5
+      y: 0.5
+      th: 0 # in degree
+  - point:
+      x: -0.5
+      y: -0.5
+      th: 90 # in degree 
+  
