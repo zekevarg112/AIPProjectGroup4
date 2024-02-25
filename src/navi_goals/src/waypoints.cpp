@@ -43,7 +43,7 @@ bool buildWaypointsFromFile(std::vector<geometry_msgs::PointStamped> &waypoints)
 
   //// setup waypoints filename
   // declare string for input file name including the path inside the package
-  std::string waypoints_filename = "config/waypoints.yaml";
+  std::string waypoints_filename = "config/output.yaml";
   std::string waypoints_path_filename;
 
   // get the package path

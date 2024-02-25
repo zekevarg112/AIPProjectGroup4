@@ -1,3 +1,4 @@
+tolerance: 1.0
 map_update_interval: 2.0
 maxUrange: 4.0
 sigma: 0.05
