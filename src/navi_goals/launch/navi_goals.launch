@@ -3,11 +3,27 @@
    
   <node pkg="navi_goals" type="navi_goals" name="navi_goals_node" output="screen" />
 
+	<!-- Load map file -->
+	<arg name="map_file" default="$(find navi_goals)/map/map1.yaml"/>
+	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)"/>
+
+	<!-- Load turtlebot model -->
+	<arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
+	<arg name="configuration_basename" default="turtlebot3_lds_2d.lua"/>
+	<include file="$(find turtlebot3_bringup)/launch/turtlebot3_remote.launch">
+    <arg name="model" value="$(arg model)" />
+  </include>
+
   <!-- By default, do not start RViz from this launch file -->
   <arg name="rviz" default="true" />
   <arg name="use_rviz" default="true"/>
   <!-- Launch Rviz configured for navigation -->
-  <arg name="rvizconfig" default="$(find navi_goals)/rviz/navigation.rviz"/> <!-- Set config file --> 
+  <arg name="rvizconfig" default="$(find navi_goals)/rviz/navigation.rviz"/> 
+	
+	<!-- Transformation something -->
+	<node name="tf" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 /map /odom 100" />
+
+	<!-- Set config file --> 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" if="$(arg use_rviz)" />
 
 </launch>
