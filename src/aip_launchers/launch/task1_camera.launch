@@ -1,0 +1,6 @@
+<launch>
+	<include file="$(find apriltag_ros)/launch/continuous_detection.launch">
+	</include>
+	<node pkg="transform_listen" type="transform_listener.py" name="tf_listen_node" output="screen">
+	</node>
+</launch>

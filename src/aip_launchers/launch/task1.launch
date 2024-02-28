@@ -1,5 +1,9 @@
 <launch>
-	<include file="$(find rrt_exploration)/launch/simple.launch">
+	<include file="$(find aip_launchers)/launch/task1_camera.launch">
+	</include>
+	<include file="$(find aip_launchers)/launch/task1_slam.launch">
+	</include>
+	<include file="$(find aip_launchers)/launch/explore.launch">
 	</include>
 	
 </launch>
