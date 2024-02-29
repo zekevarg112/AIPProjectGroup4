@@ -169,7 +169,13 @@ int main( int argc, char **argv )
 ros::Rate rate(1); // in Hz, makes a best effort at maintaining a particular rate for a loop
 while(ros::ok())
   {
- switch (task)
+	  ROS_INFO_ONCE("Moving to next waypoint");
+      // funtion call to run waypoint navigation to waypoint 0
+      run(ref_frame, goal, waypoints, task);
+      ROS_INFO_ONCE("Loading of goods ... (waiting 1 seconds)");
+      ros::Duration(1).sleep(); 
+      task++;
+ /*switch (task)
     {
     case 0:
       ROS_INFO_ONCE("Moving to pick up place");
@@ -190,7 +196,7 @@ while(ros::ok())
     case 2:
       ROS_INFO_ONCE("Done!");
       break;
-    }
+    }*/
 }
   return 0;
 }
