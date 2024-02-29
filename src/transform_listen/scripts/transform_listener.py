@@ -24,7 +24,8 @@ listener = tf.TransformListener()
 
 #number_of_decimals = 2
 
-tag_list = [None]*20
+tag_list = [None]*21
+tag_list[0] = [0,0,0]
   
 print("Node initialized, looking for tag positions")
 while not rospy.is_shutdown():
@@ -33,7 +34,7 @@ while not rospy.is_shutdown():
 		
 			if listener.waitForTransform('/map','/tag_'+str(i), rospy.Time(0), rospy.Duration(0.2)) == None:
 				(trans,rot) = listener.lookupTransform('/map','/tag_'+str(i), rospy.Time(0))
-				tag_list[i]=trans
+				tag_list[i+1]=trans
 
 				print(tag_list)
 			

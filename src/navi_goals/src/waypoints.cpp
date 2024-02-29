@@ -33,6 +33,9 @@ void operator >> ( const YAML::Node& node, T& i )
   i = node.as<T>();
 }
 
+
+int tries = 0;
+uint8_t task = 0;
 /*
    Build waypoints from yaml file
 */
@@ -43,7 +46,7 @@ bool buildWaypointsFromFile(std::vector<geometry_msgs::PointStamped> &waypoints)
 
   //// setup waypoints filename
   // declare string for input file name including the path inside the package
-  std::string waypoints_filename = "config/output.yaml";
+  std::string waypoints_filename = "config/waypoints.yaml";
   std::string waypoints_path_filename;
 
   // get the package path
@@ -136,11 +139,19 @@ void run(std::string ref_frame, move_base_msgs::MoveBaseGoal &goal, const std::v
       ROS_INFO("Sending goal: (%.2f, %.2f, %.2f)", goal.target_pose.pose.position.x, goal.target_pose.pose.position.y, goal.target_pose.pose.orientation.z );
       action_client.sendGoal( goal );
       action_client.waitForResult(ros::Duration(120.0)); // waits 120 seconds to receive a result
-      if (action_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
+      if (action_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED){
         ROS_INFO("The base reached its waypoint");
-      else
+        tries = 0;
+	}
+      else{
         ROS_INFO("The base failed to reach its waypoint");
+        if (tries < 2)
+        {
+			task--;
+			tries++;
+		}
       ros::Duration(0.5).sleep();  
+  }
 }
 
 /*
@@ -157,7 +168,7 @@ int main( int argc, char **argv )
   std::vector<geometry_msgs::PointStamped> waypoints;
   // declare 'goal' to use it to keep each waipoints coordinates (double)
   move_base_msgs::MoveBaseGoal goal;
-  uint8_t task = 0;
+
   // parse waypoints from YAML file
   bool built = buildWaypointsFromFile(waypoints);
   if ( !built )

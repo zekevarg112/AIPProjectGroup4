@@ -19,28 +19,29 @@
 #     {id: ID, size: SIZE, name: NAME},
 #     ...
 #   ]
+
 standalone_tags:
   [
-    {id: 0, size: 0.055},
-    {id: 1, size: 0.055},
-    {id: 2, size: 0.055},
-    {id: 3, size: 0.055},
-    {id: 4, size: 0.055},
-    {id: 5, size: 0.055},
-    {id: 6, size: 0.055},
-    {id: 7, size: 0.055},
-    {id: 8, size: 0.055},
-    {id: 9, size: 0.055},
-    {id: 10, size: 0.055},
-    {id: 11, size: 0.055},
-    {id: 12, size: 0.055},
-    {id: 13, size: 0.055},
-    {id: 14, size: 0.055},
-    {id: 15, size: 0.055},
-    {id: 16, size: 0.055},
-    {id: 17, size: 0.055},
-    {id: 18, size: 0.055},
-    {id: 19, size: 0.055}
+    {id: 0, size: 0.08},
+    {id: 1, size: 0.08},
+    {id: 2, size: 0.08},
+    {id: 3, size: 0.08},
+    {id: 4, size: 0.08},
+    {id: 5, size: 0.08},
+    {id: 6, size: 0.08},
+    {id: 7, size: 0.08},
+    {id: 8, size: 0.08},
+    {id: 9, size: 0.08},
+    {id: 10, size: 0.08},
+    {id: 11, size: 0.08},
+    {id: 12, size: 0.08},
+    {id: 13, size: 0.08},
+    {id: 14, size: 0.08},
+    {id: 15, size: 0.08},
+    {id: 16, size: 0.08},
+    {id: 17, size: 0.08},
+    {id: 18, size: 0.08},
+    {id: 19, size: 0.08}
   ]
 # ## Tag bundle definitions
 # ### Remarks
